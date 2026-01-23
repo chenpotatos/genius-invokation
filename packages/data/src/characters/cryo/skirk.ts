@@ -219,6 +219,7 @@ export const Skirk = character(1116)
   .tags("cryo", "sword", "calamity")
   .health(10)
   .energy(0)
+  .specialEnergy("serpentsSubtlety", 7)
   .skills(HavocSunder, HavocWarp, HavocRuin, ReasonBeyondReason)
   .done();
 
@@ -233,6 +234,7 @@ export const Skirk01 = character(6605)
   .tags("cryo", "sword", "calamity")
   .health(10)
   .energy(0)
+  .specialEnergy("serpentsSubtlety", 7)
   .skills(HavocSunder, HavocWarp, HavocExtinction, ReasonBeyondReason)
   .done();
 
