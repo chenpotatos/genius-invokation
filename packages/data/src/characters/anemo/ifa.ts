@@ -199,5 +199,5 @@ export const TacticalWarmCompressBandaging = card(215151)
   .on("dealReaction", (c, e) => e.relatedTo(DamageType.Anemo) || e.type === Reaction.ElectroCharged)
   .listenToPlayer()
   .usagePerRound(2)
-  .heal(2, `my characters order by health - maxHealth limit 1`)
+  .heal(1, `my characters order by health - maxHealth limit 1`)
   .done();
