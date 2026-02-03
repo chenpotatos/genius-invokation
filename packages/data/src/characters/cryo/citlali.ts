@@ -180,9 +180,8 @@ export const MamaloacosFrigidRain = card(211141)
   .since("v5.7.0")
   .costCryo(2)
   .talent(Citlali, "none")
-  .on("damaged", (c, e) =>
-    (e.getReaction() === Reaction.Frozen || e.getReaction() === Reaction.Melt) &&
-    !e.target.isMine())
+  .on("dealDamage", (c, e) =>
+    (e.getReaction() === Reaction.Frozen || e.getReaction() === Reaction.Melt)) // 实为我方造成
   .listenToAll()
   .usagePerRound(1)
   .combatStatus(MamaloacosFrigidRainInEffect)
