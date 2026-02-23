@@ -78,10 +78,10 @@ export const TowerOfIpsissimus = card(321033)
   .on("adventure", (c) => c.getVariable("exp") % 2 === 0)
   .generateDice("randomElement", 1)
   .on("adventure", (c) => c.getVariable("exp") >= 5)
-  .usage(1, { name: "stage5", autoDispose: false, visible: false })
+  .usage(1, { name: "stage5", visible: false })
   .createHandCard(WoodenToySword)
   .on("adventure", (c) => c.getVariable("exp") >= 12)
-  .usage(1, { name: "stage12", autoDispose: false, visible: false })
+  .usage(1, { name: "stage12", visible: false })
   .createHandCard(ReforgeTheHolyBlade)
   .finishAdventure()
   .done();
@@ -137,4 +137,3 @@ export const Tonatiuh = card(321034)
     c.finishAdventure();
   })
   .done();
-
