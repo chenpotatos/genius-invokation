@@ -1261,6 +1261,7 @@ export const TheShowBegins = card(332035)
  */
 export const SerenesSupport = card(302206)
   .since("v4.8.0")
+  .unobtainable()
   .do((c) => {
     const candidates = c.allCardDefinitions("food");
     // 似乎是“有放回抽样”，两张牌可重
@@ -1279,6 +1280,7 @@ export const SerenesSupport = card(302206)
  */
 export const LaumesSupport = card(302207)
   .since("v4.8.0")
+  .unobtainable()
   .do((c) => {
     const candidates = c.allCardDefinitions("artifact");
     const card0 = c.random(candidates);
@@ -1296,6 +1298,7 @@ export const LaumesSupport = card(302207)
  */
 export const CosanzeanasSupport = card(302208)
   .since("v4.8.0")
+  .unobtainable()
   .do((c) => {
     const candidates = c.allCardDefinitions("weapon");
     // 似乎是“有放回抽样”，两张牌可重
@@ -1339,6 +1342,7 @@ const getMelusineEventCards = (cards: ReadonlyMap<number, EntityDefinition>): Ca
  */
 export const CanotilasSupport = card(302209)
   .since("v4.8.0")
+  .unobtainable()
   .costSame(1)
   .do((c) => {
     const cards = getMelusineEventCards(c.data.entities);
@@ -1374,6 +1378,7 @@ const ThironasGoodWill = combatStatus(302219)
  */
 export const ThironasSupport = card(302210)
   .since("v4.8.0")
+  .unobtainable()
   .combatStatus(ThironasGoodWill)
   .done();
 
@@ -1385,6 +1390,7 @@ export const ThironasSupport = card(302210)
  */
 export const SluasisSupport = card(302211)
   .since("v4.8.0")
+  .unobtainable()
   .costSame(1)
   .do((c) => {
     for (const card of c.oppPlayer.pile.slice(0, 3)) {
@@ -1401,6 +1407,7 @@ export const SluasisSupport = card(302211)
  */
 export const VirdasSupport = card(302212)
   .since("v4.8.0")
+  .unobtainable()
   .costVoid(2)
   .do((c) => {
     const candidates = c.allCardDefinitions("legend");
@@ -1473,6 +1480,7 @@ const TopyassGoodwill = combatStatus(302216)
  */
 export const TopyassSupport = card(302214)
   .since("v4.8.0")
+  .unobtainable()
   .drawCards(2)
   .combatStatus(TopyassGoodwill, "my")
   .combatStatus(TopyassGoodwill, "opp")
@@ -1507,6 +1515,7 @@ const LutinesGoodwill = combatStatus(302217)
  */
 export const LutinesSupport = card(302215)
   .since("v4.8.0")
+  .unobtainable()
   .drawCards(2)
   .combatStatus(LutinesGoodwill, "my")
   .combatStatus(LutinesGoodwill, "opp")

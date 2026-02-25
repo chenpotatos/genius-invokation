@@ -662,6 +662,7 @@ const PUCAS_ALLIES = () => [
  */
 export const PucasSupport = card(302213)
   .since("v4.8.0")
+  .unobtainable()
   .do((c) => {
     const myCount = c.remainingSupportCount("my");
     const myAllies = c.randomSubset(PUCAS_ALLIES(), myCount);
