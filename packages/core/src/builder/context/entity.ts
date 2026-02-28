@@ -24,6 +24,7 @@ import {
   ReactiveStateBase,
   ReactiveStateSymbol,
 } from "./reactive_base";
+import type { AttachmentHandle } from "../type";
 
 class ReadonlyEntity<Meta extends ContextMetaBase> extends ReactiveStateBase {
   override get [ReactiveStateSymbol](): "entity" {
@@ -73,10 +74,14 @@ class ReadonlyEntity<Meta extends ContextMetaBase> extends ReactiveStateBase {
     return diceCostSizeOfCard(this.skillContext.rawState, this.latest());
   }
 
+  withAttachment(id: AttachmentHandle) {
+    return this.state.attachments.some(att => att.id === id);
+  }
   empowered() {
     // Empowerment: 206
-    return this.state.attachments.some((att => att.definition.id === 206));
+    return this.withAttachment(206 as AttachmentHandle);
   }
+
 
   get master() {
     if (this.area.type !== "characters") {

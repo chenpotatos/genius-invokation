@@ -371,7 +371,7 @@ export const FortressOfMeropide = card(321018)
     if (c.getVariable("forbidden") >= 5 && c.oppPlayer.hands.length > 0) {
       c.addVariable("forbidden", -5);
       const candidates = c.oppPlayer.hands.filter(
-        (card) => !card.attachments.some(att => att.definition.id === IneffectiveWhenPlayed)
+        (card) => !card.withAttachment(IneffectiveWhenPlayed)
       );
       const target = c.random(candidates);
       if (target) {
