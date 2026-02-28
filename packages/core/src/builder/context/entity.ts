@@ -75,7 +75,7 @@ class ReadonlyEntity<Meta extends ContextMetaBase> extends ReactiveStateBase {
   }
 
   withAttachment(id: AttachmentHandle) {
-    return this.state.attachments.some(att => att.id === id);
+    return this.state.attachments.some(att => att.definition.id === id);
   }
   empowered() {
     // Empowerment: 206
