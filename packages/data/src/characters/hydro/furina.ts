@@ -24,7 +24,7 @@ import { character, skill, summon, status, combatStatus, card, DamageType, Chara
  */
 export const SeatsSacredAndSecular: CardHandle = card(112113)
   .since("v4.7.0")
-  .unobtainable()
+  .undiscoverable()
   .filter((c) => c.$(`my character with definition id ${FurinaPneuma} or my character with definition id ${FurinaOusia}`))
   .do((c) => {
     const furina = c.$(`my character with definition id ${FurinaPneuma} or my character with definition id ${FurinaOusia}`);

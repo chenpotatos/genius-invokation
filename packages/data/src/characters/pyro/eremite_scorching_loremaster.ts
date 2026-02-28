@@ -44,7 +44,7 @@ export const ScorpionBlessing = combatStatus(123032)
  */
 export const SpiritOfOmenPyroScorpion = card(123031)
   .since("v5.1.0")
-  .unobtainable()
+  .undiscoverable()
   .technique()
   .tags("barrier")
   .variable("barrierUsage", 0) // no io hint for now

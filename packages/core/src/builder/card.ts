@@ -277,7 +277,7 @@ export class CardBuilder<
     return this;
   }
 
-  unobtainable(): this {
+  undiscoverable(): this {
     this._obtainable = false;
     return this;
   }
@@ -324,7 +324,7 @@ export class CardBuilder<
    */
   nightsoulTechnique(option: NightsoulTechniqueOption = {}) {
     const { alsoDisposeNightsoulsBlessing = true, target } = option;
-    const self = this.unobtainable()
+    const self = this.undiscoverable()
       .technique(target)
       .on("beforeAction")
       .listenToAll()
@@ -380,7 +380,7 @@ export class CardBuilder<
   }
 
   adventureSpot(): EntityBuilderPublic<"support", "exp"> {
-    return this.unobtainable()
+    return this.undiscoverable()
       .support("place", "adventureSpot")
       .variableCanAppend("exp", 1, Infinity);
   }
@@ -389,7 +389,7 @@ export class CardBuilder<
     type1: DiceType,
     type2: DiceType,
   ): EntityBuilderPublic<"support"> {
-    return this.unobtainable()
+    return this.undiscoverable()
       .support("blessing")
       .on("actionPhase", (c, e) => {
         if (c.self.area.type === "supports") {
@@ -482,9 +482,11 @@ export class CardBuilder<
   }
 
   legend(): this {
-    return this.unobtainable()
-      .tags("legend")
-      .filter((c) => !c.player.legendUsed);
+    return (
+      this.tags("legend")
+        // .undiscoverable()
+        .filter((c) => !c.player.legendUsed)
+    );
   }
 
   /**
@@ -531,7 +533,7 @@ export class CardBuilder<
     requires: TalentRequirement = "actionSkill",
   ) {
     const equipQuery = this.prepareTalent(ch, requires);
-    return this.unobtainable().equipment(equipQuery).tags("talent");
+    return this.undiscoverable().equipment(equipQuery).tags("talent");
   }
 
   eventTalent(
@@ -539,7 +541,7 @@ export class CardBuilder<
     requires: TalentRequirement = "action",
   ) {
     const targetQuery = this.prepareTalent(ch, requires);
-    return this.unobtainable().addTarget(targetQuery);
+    return this.undiscoverable().addTarget(targetQuery);
   }
 
   /** 增加 food 标签；设置目标为我方非饱腹角色 */

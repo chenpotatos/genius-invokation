@@ -82,7 +82,7 @@ export const VerdantGiftInEffect = status(111158)
  * （每回合每个角色最多食用1次「料理」）
  */
 export const GildedHall = card(111152)
-  .unobtainable() 
+  .undiscoverable() 
   .food()
   .characterStatus(GildedHallInEffect, "@targets.0")
   .done();
@@ -95,7 +95,7 @@ export const GildedHall = card(111152)
  * （每回合每个角色最多食用1次「料理」）
  */
 export const AutumnFrost = card(111153)
-  .unobtainable() 
+  .undiscoverable() 
   .food()
   .heal(1, "@targets.0")
   .increaseMaxHealth(1, "@targets.0")
@@ -109,7 +109,7 @@ export const AutumnFrost = card(111153)
  * （每回合每个角色最多食用1次「料理」）
  */
 export const WaveKissedSands = card(111154)
-  .unobtainable() 
+  .undiscoverable() 
   .combatFood({ satiatedFilter: "allNot" })
   .costVoid(2)
   .characterStatus(WavekissedSandsInEffect, "all my characters")
@@ -123,7 +123,7 @@ export const WaveKissedSands = card(111154)
  * （每回合每个角色最多食用1次「料理」）
  */
 export const VerdantGift = card(111155)
-  .unobtainable() 
+  .undiscoverable() 
   .combatFood({ satiatedFilter: "allNot" })
   .costSame(1)
   .characterStatus(VerdantGiftInEffect, "all my characters")
@@ -138,7 +138,7 @@ export const VerdantGift = card(111155)
  */
 export const AllspectrumMultiuseCookingMek = card(111159)
   .since("v6.2.0")
-  .unobtainable()
+  .undiscoverable()
   .support("place") // 神秘
   .on("reaction", (c, e) => e.relatedTo(DamageType.Cryo))
   .listenToAll()

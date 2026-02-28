@@ -306,7 +306,7 @@ export const updateBuilderChainDecorations = (
         [
           "type",
           "tags",
-          "unobtainable",
+          "undiscoverable",
           "health",
           "energy",
           "skills",

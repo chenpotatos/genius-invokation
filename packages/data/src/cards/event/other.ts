@@ -1077,7 +1077,7 @@ export const ControlledDirectionalBlast = card(332030)
  */
 export const TaroumarusSavings = card(302202)
   .since("v4.6.0")
-  .unobtainable()
+  .undiscoverable()
   .generateDice(DiceType.Omni, 1)
   .done();
 
@@ -1089,7 +1089,7 @@ export const TaroumarusSavings = card(302202)
  */
 export const [CalledInForCleanup] = card(302203)
   .since("v4.6.0")
-  .unobtainable()
+  .undiscoverable()
   .toCombatStatus(302204)
   .variableCanAppend("damage", 1, 2)
   .once("increaseSkillDamage")
@@ -1116,7 +1116,7 @@ const UnderseaTreasureOnCD = status(303231)
  */
 export const UnderseaTreasure = card(303230)
   .since("v4.6.0")
-  .unobtainable()
+  .undiscoverable()
   .generateDice("randomElement", 1)
   .do((c) => {
     if (!c.$(`my active has status with definition id ${UnderseaTreasureOnCD}`)) {
@@ -1156,7 +1156,7 @@ export const BonecrunchersEnergyBlockCombatStatus = combatStatus(124053)
  */
 export const BonecrunchersEnergyBlock = card(124051)
   .since("v4.7.0")
-  .unobtainable()
+  .undiscoverable()
   .filter((c) => !c.$(`my combat status with definition id ${BonecrunchersEnergyBlockCombatStatus}`))
   .abortPreview()
   .do((c) => {
@@ -1186,7 +1186,7 @@ export const ForbiddenKnowledgeCoolDown = combatStatus(301021)
  */
 export const ForbiddenKnowledge = card(301020)
   .since("v4.7.0")
-  .unobtainable()
+  .undiscoverable()
   .tags("abyss")
   .disableTuning()
   .filter((c) => !c.$(`my combat status with definition id ${ForbiddenKnowledgeCoolDown}`))
@@ -1221,7 +1221,7 @@ export const CountdownToTheShow3 = card(332032)
  */
 export const CountdownToTheShow2 = card(332033)
   .since("v4.7.0")
-  .unobtainable()
+  .undiscoverable()
   .costSame(2)
   .convertDice(DiceType.Omni, "all")
   .drawCards(4)
@@ -1239,7 +1239,7 @@ export const CountdownToTheShow2 = card(332033)
  */
 export const CountdownToTheShow1 = card(332034)
   .since("v4.7.0")
-  .unobtainable()
+  .undiscoverable()
   .costSame(1)
   .convertDice(DiceType.Omni, "all")
   .drawCards(4)
@@ -1256,7 +1256,7 @@ export const CountdownToTheShow1 = card(332034)
  */
 export const TheShowBegins = card(332035)
   .since("v4.7.0")
-  .unobtainable()
+  .undiscoverable()
   .convertDice(DiceType.Omni, "all")
   .drawCards(4)
   .done();
@@ -1269,7 +1269,7 @@ export const TheShowBegins = card(332035)
  */
 export const SerenesSupport = card(302206)
   .since("v4.8.0")
-  .unobtainable()
+  .undiscoverable()
   .do((c) => {
     const candidates = c.allCardDefinitions("food");
     // 似乎是“有放回抽样”，两张牌可重
@@ -1288,7 +1288,7 @@ export const SerenesSupport = card(302206)
  */
 export const LaumesSupport = card(302207)
   .since("v4.8.0")
-  .unobtainable()
+  .undiscoverable()
   .do((c) => {
     const candidates = c.allCardDefinitions("artifact");
     const card0 = c.random(candidates);
@@ -1306,7 +1306,7 @@ export const LaumesSupport = card(302207)
  */
 export const CosanzeanasSupport = card(302208)
   .since("v4.8.0")
-  .unobtainable()
+  .undiscoverable()
   .do((c) => {
     const candidates = c.allCardDefinitions("weapon");
     // 似乎是“有放回抽样”，两张牌可重
@@ -1350,7 +1350,7 @@ const getMelusineEventCards = (cards: ReadonlyMap<number, EntityDefinition>): Ca
  */
 export const CanotilasSupport = card(302209)
   .since("v4.8.0")
-  .unobtainable()
+  .undiscoverable()
   .costSame(1)
   .do((c) => {
     const cards = getMelusineEventCards(c.data.entities);
@@ -1386,7 +1386,7 @@ const ThironasGoodWill = combatStatus(302219)
  */
 export const ThironasSupport = card(302210)
   .since("v4.8.0")
-  .unobtainable()
+  .undiscoverable()
   .combatStatus(ThironasGoodWill)
   .done();
 
@@ -1398,7 +1398,7 @@ export const ThironasSupport = card(302210)
  */
 export const SluasisSupport = card(302211)
   .since("v4.8.0")
-  .unobtainable()
+  .undiscoverable()
   .costSame(1)
   .do((c) => {
     for (const card of c.oppPlayer.pile.slice(0, 3)) {
@@ -1415,7 +1415,7 @@ export const SluasisSupport = card(302211)
  */
 export const VirdasSupport = card(302212)
   .since("v4.8.0")
-  .unobtainable()
+  .undiscoverable()
   .costVoid(2)
   .do((c) => {
     const candidates = c.allCardDefinitions("legend");
@@ -1488,7 +1488,7 @@ const TopyassGoodwill = combatStatus(302216)
  */
 export const TopyassSupport = card(302214)
   .since("v4.8.0")
-  .unobtainable()
+  .undiscoverable()
   .drawCards(2)
   .combatStatus(TopyassGoodwill, "my")
   .combatStatus(TopyassGoodwill, "opp")
@@ -1523,7 +1523,7 @@ const LutinesGoodwill = combatStatus(302217)
  */
 export const LutinesSupport = card(302215)
   .since("v4.8.0")
-  .unobtainable()
+  .undiscoverable()
   .drawCards(2)
   .combatStatus(LutinesGoodwill, "my")
   .combatStatus(LutinesGoodwill, "opp")
@@ -1924,7 +1924,7 @@ export const SIMULANKA_QUERY = SIMULANKA_SUMMONS
  */
 export const ToyGuard = card(301033)
   .since("v5.8.0")
-  .unobtainable()
+  .undiscoverable()
   .costSame(1)
   .summon(ToyGuardSummon)
   .done();
@@ -1939,7 +1939,7 @@ export const ToyGuard = card(301033)
  */
 export const OrigamiFlyingSquirrel = card(301034)
   .since("v5.8.0")
-  .unobtainable()
+  .undiscoverable()
   .costSame(1)
   .summon(OrigamiFlyingSquirrelSummon)
   .done();
@@ -1954,7 +1954,7 @@ export const OrigamiFlyingSquirrel = card(301034)
  */
 export const PopupPaperFrog = card(301035)
   .since("v5.8.0")
-  .unobtainable()
+  .undiscoverable()
   .costSame(1)
   .summon(PopupPaperFrogSummon)
   .done();
@@ -1969,7 +1969,7 @@ export const PopupPaperFrog = card(301035)
  */
 export const OrigamiHamster = card(301036)
   .since("v5.8.0")
-  .unobtainable()
+  .undiscoverable()
   .costSame(1)
   .summon(OrigamiHamsterSummon)
   .done();
@@ -2161,7 +2161,7 @@ export const AnAncientSacrificeOfSacredBrocade = card(332056)
  */
 export const DisperseTheCalamity = card(300008)
   .since("v6.2.0")
-  .unobtainable()
+  .undiscoverable()
   .do((c) => {
     const cards = c.maxCostHands(1, { who: "opp" });
     c.undrawCards(cards, "bottom", "opp");
@@ -2176,7 +2176,7 @@ export const DisperseTheCalamity = card(300008)
  */
 export const SanctifyTheDefiled = card(300009)
   .since("v6.2.0")
-  .unobtainable()
+  .undiscoverable()
   .do((c) => {
     const allHands = [...c.player.hands];
     const count = allHands.length;
@@ -2193,7 +2193,7 @@ export const SanctifyTheDefiled = card(300009)
  */
 export const WoodenToySword = card(301038)
   .since("v6.2.0")
-  .unobtainable()
+  .undiscoverable()
   .costSame(1)
   .addTarget("my characters")
   .heal(2, "@targets.0")
@@ -2222,7 +2222,7 @@ export const ReforgeTheHolyBladeInEffect = status(301040)
  */
 export const ReforgeTheHolyBlade = card(301039)
   .since("v6.2.0")
-  .unobtainable()
+  .undiscoverable()
   .costVoid(4)
   .addTarget("my characters")
   .heal(12, "@targets.0")

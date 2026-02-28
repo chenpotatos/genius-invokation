@@ -103,7 +103,7 @@ export const FlamestriderFullThrottleInEffectPrepareStatus = status(113157)
  */
 export const FlamestriderSoaringAscent = card(113154)
   .since("v5.7.0")
-  .unobtainable()
+  .undiscoverable()
   .costVoid(3)
   .onDispose((c, e) => {
     c.damage(DamageType.Pyro, 1);
@@ -131,7 +131,7 @@ export const FlamestriderSoaringAscent = card(113154)
  */
 export const FlamestriderBlazingTrail = card(113155)
   .since("v5.7.0")
-  .unobtainable()
+  .undiscoverable()
   .costVoid(2)
   .do((c) => {
     const summons = c.$$(`my summons`);
@@ -161,7 +161,7 @@ export const FlamestriderBlazingTrail = card(113155)
  */
 export const FlamestriderFullThrottle = card(113156)
   .since("v5.7.0")
-  .unobtainable()
+  .undiscoverable()
   .costSame(1)
   .technique(`my character with definition id 1315`)
   .provideSkill(1131561)

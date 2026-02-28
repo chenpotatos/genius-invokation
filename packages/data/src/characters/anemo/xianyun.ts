@@ -71,7 +71,7 @@ export const Skyladder = combatStatus(115101)
  */
 export const Starwicker = card(115102)
   .since("v5.0.0")
-  .unobtainable()
+  .undiscoverable()
   .technique()
   .provideSkill(1151021)
   .costSame(1)

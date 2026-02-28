@@ -54,7 +54,7 @@ export const MistBubbleLockdownPreparing: StatusHandle = status(122053)
  */
 export const MistBubbleSlime = card(122051)
   .since("v5.0.0")
-  .unobtainable()
+  .undiscoverable()
   .technique()
   .provideSkill(1220511)
   .costSame(1)

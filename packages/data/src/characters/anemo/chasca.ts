@@ -59,7 +59,7 @@ export const SoulsniperRitualStaff = card(115112)
  */
 export const ShadowhuntShell = card(115113)
   .since("v5.7.0")
-  .unobtainable()
+  .undiscoverable()
   .costAnemo(3)
   .onHCI((c) => {
     const element = c.$(`my active`)?.element();
@@ -91,7 +91,7 @@ export const ShadowhuntShell = card(115113)
  */
 export const ShiningShadowhuntShellPyro = card(115114)
   .since("v5.7.0")
-  .unobtainable()
+  .undiscoverable()
   .costPyro(3)
   .doSameWhenDisposed({
     filter: (c, e) => e.from.type === "hands",
@@ -111,7 +111,7 @@ export const ShiningShadowhuntShellPyro = card(115114)
  */
 export const ShiningShadowhuntShellHydro = card(115115)
   .since("v5.7.0")
-  .unobtainable()
+  .undiscoverable()
   .costHydro(3)
   .doSameWhenDisposed({
     filter: (c, e) => e.from.type === "hands",
@@ -131,7 +131,7 @@ export const ShiningShadowhuntShellHydro = card(115115)
  */
 export const ShiningShadowhuntShellElectro = card(115116)
   .since("v5.7.0")
-  .unobtainable()
+  .undiscoverable()
   .costElectro(3)
   .doSameWhenDisposed({
     filter: (c, e) => e.from.type === "hands",
@@ -151,7 +151,7 @@ export const ShiningShadowhuntShellElectro = card(115116)
  */
 export const ShiningShadowhuntShellCryo = card(115117)
   .since("v5.7.0")
-  .unobtainable()
+  .undiscoverable()
   .costCryo(3)
   .doSameWhenDisposed({
     filter: (c, e) => e.from.type === "hands",

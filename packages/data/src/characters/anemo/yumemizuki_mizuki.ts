@@ -23,7 +23,7 @@ import { ResistantForm } from "../../commons";
  */
 export const YumemiStyleSpecialSnacks = card(115142)
   .tags("food")
-  .unobtainable()
+  .undiscoverable()
   .descriptionOnHCI()
   .do((c) => {
     if (c.$("my active character with health > 5")){
