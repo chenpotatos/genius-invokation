@@ -34,15 +34,11 @@ import { useDecks } from "./Decks";
 import { Login } from "../components/Login";
 import { useAuth } from "../auth";
 import { useI18n } from "../i18n";
+import { Portal } from "solid-js/web";
 
 export default function Home() {
   const { t } = useI18n();
-  const {
-    status,
-    loading: userLoading,
-    error: userError,
-    logout,
-  } = useAuth();
+  const { status, loading: userLoading, error: userError, logout } = useAuth();
   const navigate = useNavigate();
   const { decks, loading: decksLoading, error: decksError } = useDecks();
 
@@ -153,7 +149,8 @@ export default function Home() {
                     <Match when={decksError()}>
                       <div class="text-gray-500">
                         {t("deckInfoLoadFailed", {
-                          message: decksError()?.message ?? String(decksError()),
+                          message:
+                            decksError()?.message ?? String(decksError()),
                         })}
                       </div>
                     </Match>
@@ -249,7 +246,9 @@ export default function Home() {
                       <Match when={true}>
                         <For
                           each={allRooms()}
-                          fallback={<div class="text-gray-500">{t("noGames")}</div>}
+                          fallback={
+                            <div class="text-gray-500">{t("noGames")}</div>
+                          }
                         >
                           {(roomInfo) => (
                             <li>
@@ -262,11 +261,6 @@ export default function Home() {
                   </ul>
                 </div>
               </div>
-              <RoomDialog ref={createRoomDialogEl!} />
-              <RoomDialog
-                ref={joinRoomDialogEl!}
-                joiningRoomInfo={joiningRoomInfo()}
-              />
             </div>
           </Match>
           <Match when={true}>
@@ -276,6 +270,13 @@ export default function Home() {
           </Match>
         </Switch>
       </div>
+      <Portal>
+        <RoomDialog ref={createRoomDialogEl!} />
+        <RoomDialog
+          ref={joinRoomDialogEl!}
+          joiningRoomInfo={joiningRoomInfo()}
+        />
+      </Portal>
     </Layout>
   );
 }

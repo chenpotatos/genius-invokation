@@ -33,8 +33,7 @@ import type { AssetsManager } from "@gi-tcg/assets-manager";
 import { useI18n } from "../i18n";
 
 function SelectableDeckInfo(
-  props: DeckInfoProps &
-    Omit<JSX.InputHTMLAttributes<HTMLInputElement>, "id"> 
+  props: DeckInfoProps & Omit<JSX.InputHTMLAttributes<HTMLInputElement>, "id">,
 ) {
   const { assetsManager } = useI18n();
   const [deckInfo, inputProps] = splitProps(props, [
@@ -85,7 +84,12 @@ export interface RoomDialogProps {
 }
 
 interface TimeConfig {
-  nameKey: "timeConfigMinimal" | "timeConfigStandard" | "timeConfigDouble" | "timeConfigLong" | "timeConfigEndless";
+  nameKey:
+    | "timeConfigMinimal"
+    | "timeConfigStandard"
+    | "timeConfigDouble"
+    | "timeConfigLong"
+    | "timeConfigEndless";
   estimationTime: number;
   initTotalActionTime: number;
   rerollTime: number;
@@ -313,19 +317,33 @@ export function RoomDialog(props: RoomDialogProps) {
                       onClick={() => setTimeConfig(config)}
                     >
                       <h5 class="font-bold text-gray-400 group-data-[active=true]:text-black transition-colors">
-                        {t(config.nameKey) ??
-                          `${config.roundTotalActionTime} + ${config.actionTime}`}
+                        {config.nameKey
+                          ? t(config.nameKey)
+                          : `${config.roundTotalActionTime} + ${config.actionTime}`}
                       </h5>
-                        <h5 class="text-gray-400 group-data-[active=true]:text-gray-600 transition-colors md:mb-1 font-size-80%">
-                          {t("estimatedEachRound", {
+                      <h5 class="text-gray-400 group-data-[active=true]:text-gray-600 transition-colors md:mb-1 font-size-80%">
+                        {config.estimationTime &&
+                          t("estimatedEachRound", {
                             minutes: config.estimationTime,
                           })}
-                        </h5>
+                      </h5>
                       <ul class="hidden md:block pl-3 list-disc text-gray-400 font-size-80% text-sm group-data-[active=true]:text-slate-500 transition-colors">
-                        <li>{t("initTotalActionTime", { seconds: config.initTotalActionTime })}</li>
-                        <li>{t("rerollTime", { seconds: config.rerollTime })}</li>
-                        <li>{t("roundTotalActionTime", { seconds: config.roundTotalActionTime })}</li>
-                        <li>{t("actionTime", { seconds: config.actionTime })}</li>
+                        <li>
+                          {t("initTotalActionTime", {
+                            seconds: config.initTotalActionTime,
+                          })}
+                        </li>
+                        <li>
+                          {t("rerollTime", { seconds: config.rerollTime })}
+                        </li>
+                        <li>
+                          {t("roundTotalActionTime", {
+                            seconds: config.roundTotalActionTime,
+                          })}
+                        </li>
+                        <li>
+                          {t("actionTime", { seconds: config.actionTime })}
+                        </li>
                       </ul>
                     </div>
                   )}
@@ -382,7 +400,9 @@ export function RoomDialog(props: RoomDialogProps) {
             <ul class="flex-grow-1 flex flex-row md:flex-col flex-wrap md:flex-nowrap min-h-0 max-h-75dvh md:max-h-135 overflow-auto deck-ul-scrollbar">
               <For
                 each={availableDecks()}
-                fallback={<li class="text-gray-500">{t("noDeckForVersion")}</li>}
+                fallback={
+                  <li class="text-gray-500">{t("noDeckForVersion")}</li>
+                }
               >
                 {(deck) => (
                   <li>

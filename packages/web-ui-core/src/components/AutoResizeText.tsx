@@ -1,6 +1,5 @@
 import {
   children as solidChildren,
-  createEffect,
   createSignal,
   onCleanup,
   onMount,
@@ -57,7 +56,7 @@ export function AutoResizeText(props: AutoResizeTextProps) {
     const minSize =
       (cssMinFontSize ? parseFloat(cssMinFontSize) : local.minFontSize) ?? 12;
 
-    const containerWidth = container.clientWidth;
+    const containerWidth = container.getBoundingClientRect().width;
     const baseFontSize = parseFloat(getComputedStyle(container).fontSize);
     const baseTextWidth = getTextWidth();
 
