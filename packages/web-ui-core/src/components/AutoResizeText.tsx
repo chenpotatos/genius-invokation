@@ -5,6 +5,7 @@ import {
   onMount,
   splitProps,
   type ComponentProps,
+  untrack,
 } from "solid-js";
 
 export interface AutoResizeTextProps extends ComponentProps<"p"> {
@@ -56,7 +57,7 @@ export function AutoResizeText(props: AutoResizeTextProps) {
     const minSize =
       (cssMinFontSize ? parseFloat(cssMinFontSize) : local.minFontSize) ?? 12;
 
-    const containerWidth = container.getBoundingClientRect().width;
+    const containerWidth = Math.ceil(container.getBoundingClientRect().width);
     const baseFontSize = parseFloat(getComputedStyle(container).fontSize);
     const baseTextWidth = getTextWidth();
 
