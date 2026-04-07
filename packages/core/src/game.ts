@@ -86,7 +86,7 @@ import {
   type InitiativeSkillEventArg,
   defineSkillInfo,
 } from "./base/skill";
-import { executeQueryOnState } from "./query";
+import { runLegacyQuery } from "./query-legacy";
 import {
   GiTcgCoreInternalError,
   GiTcgDataError,
@@ -104,6 +104,8 @@ import {
 import { type ActionInfoWithModification, ActionPreviewer } from "./preview";
 import { Player } from "./player";
 import type { CharacterDefinition } from "./base/character";
+import { $, runQuery, toExpression, type QueryFn } from "./query";
+import type { IQuery } from "./query/utils";
 
 export interface DeckConfig extends Deck {
   noShuffle?: boolean;
@@ -308,8 +310,17 @@ export class Game {
     }
   }
 
-  query(who: 0 | 1, query: string): AnyState[] {
-    return executeQueryOnState(this.state, who, query);
+  query(who: 0 | 1, query: string | QueryFn | IQuery): AnyState[] {
+    if (typeof query === "string") {
+      return runLegacyQuery(this.state, who, query);
+    }
+    if (typeof query === "function") {
+      return runQuery(this.state, who, query($));
+    }
+    if (toExpression in query) {
+      return runQuery(this.state, who, query);
+    }
+    throw new GiTcgCoreInternalError(`Invalid query: ${String(query)}`);
   }
 
   // private lastNotifiedState: [string, string] = ["", ""];

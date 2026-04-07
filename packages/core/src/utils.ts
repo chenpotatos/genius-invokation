@@ -116,8 +116,8 @@ export function getAllEntities(
 }
 
 export interface EntityWithArea {
-  state: AnyState;
-  area: EntityArea;
+  readonly state: AnyState;
+  readonly area: EntityArea;
 }
 
 /**
@@ -1084,6 +1084,12 @@ type MixinResult<
   ...args: ConstructorParameters<T>
 ) => InstanceType<T> & InstanceOfConstructors<Us>;
 
+/**
+ * Construct a mixin class from `derivedCtor`, then copy prototype methods from `constructors` onto it.
+ * @param derivedCtor The base class to extend from.
+ * @param constructors Classes whose prototype methods will be copied. Their constructors and class field initializers are not executed.
+ * @returns
+ */
 export function mixins<
   T extends Constructor,
   const Us extends AbstractConstructor[],
