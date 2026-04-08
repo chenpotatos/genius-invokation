@@ -161,9 +161,9 @@ function initialize() {
 
   reaction(Reaction.LunarBloom)
     .do((c, e) => {
-      const myHands = c.player.hands;
-      if (myHands.length > 0) {
-        const target = c.random(myHands);
+      const hands = (e.here === "my" ? c.player : c.oppPlayer).hands;
+      if (hands.length > 0) {
+        const target = c.random(hands);
         c.attachCostReduction(target);
       }
     })
