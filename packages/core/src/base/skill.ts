@@ -982,6 +982,7 @@ export class ModifyDamageByReactionEventArg extends ModifyDamageEventArgBase {
       case Reaction.Burning:
       case Reaction.Bloom:
       case Reaction.Quicken:
+      case Reaction.LunarBloom:
         this._increased += 1;
         this._log += `${damageInfo.log}\nReaction (${reaction}) increase damage by 1`;
         break;

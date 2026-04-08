@@ -158,6 +158,16 @@ function initialize() {
       c.summon(Thundercloud, e.here);
     })
     .done();
+
+  reaction(Reaction.LunarBloom)
+    .do((c, e) => {
+      const myHands = c.player.hands;
+      if (myHands.length > 0) {
+        const target = c.random(myHands);
+        c.attachCostReduction(target);
+      }
+    })
+    .done();
 }
 
 let initialized = false;
